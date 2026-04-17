@@ -4,12 +4,18 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pathlib import Path
 import pandas as pd
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:4173"],
+    allow_origins=[FRONTEND_URL, "http://localhost:5173", "http://localhost:4173"],
     allow_methods=["*"],
     allow_headers=["*"],
 )

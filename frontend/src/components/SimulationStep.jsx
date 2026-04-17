@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import ChatBar from "./ChatBar";
 import "./SimulationStep.css";
 
-const API = "http://localhost:8000";
+const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 export default function SimulationStep({ simStep, prevSuccess, onCorrect }) {
   const [steps, setSteps] = useState([]);
