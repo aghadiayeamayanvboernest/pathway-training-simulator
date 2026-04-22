@@ -3,6 +3,7 @@ import Sidebar from "./components/Sidebar";
 import SimulationStep from "./components/SimulationStep";
 import EndScreen from "./components/EndScreen";
 import SettingsMenu from "./components/SettingsMenu";
+import ChatPanel from "./components/ChatPanel";
 import byuLogo from "../images/pathway-horizontal-logo.png";
 import "./App.css";
 
@@ -14,6 +15,7 @@ export default function App() {
   const [completed, setCompleted] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [theme, setTheme] = useState("light");
+  const [chatOpen, setChatOpen] = useState(false);
 
   useEffect(() => {
     const resolved =
@@ -48,7 +50,10 @@ export default function App() {
     setSimStep(0);
     setPrevSuccess(null);
     setCompleted(false);
+    setChatOpen(false);
   }
+
+  const showChat = started && phase === "simulation";
 
   return (
     <div className="app-shell">
@@ -118,6 +123,10 @@ export default function App() {
             />
           )}
         </main>
+
+        {showChat && (
+          <ChatPanel open={chatOpen} onToggle={() => setChatOpen((o) => !o)} />
+        )}
       </div>
     </div>
   );

@@ -83,21 +83,30 @@
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* ── Instruction box ─────────────────────────── */
+/* ── Instruction box — bold gradient ─────────── */
 .instruction {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px 18px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  line-height: 1.55;
-  color: var(--text);
-  box-shadow: 0 1px 4px var(--shadow-sm);
-  transition: background 0.2s, border-color 0.2s;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 18px 22px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  width: 100%;
 }
 
-.instruction-icon { flex-shrink: 0; font-size: 1rem; margin-top: 2px; }
+.instruction-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.instruction span {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.45;
+  background: linear-gradient(90deg, #FFC328 0%, #ff6b6b 60%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

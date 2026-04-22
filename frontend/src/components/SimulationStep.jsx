@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import ChatBar from "./ChatBar";
 import "./SimulationStep.css";
 
 const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
@@ -32,9 +31,10 @@ export default function SimulationStep({ simStep, prevSuccess, onCorrect }) {
       setTimeout(() => {
         setSuccessToast(null);
         onCorrect(step.correct, steps.length);
-      }, 1500);
+      }, 4000);
     } else {
       setError(step.incorrect);
+      setTimeout(() => setError(null), 2000);
     }
   }
 
@@ -59,8 +59,6 @@ export default function SimulationStep({ simStep, prevSuccess, onCorrect }) {
           draggable={false}
         />
       </div>
-
-      <ChatBar />
     </div>
   );
 }
